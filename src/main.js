@@ -10,7 +10,12 @@ import './assets/css/icon.css';
 import './components/common/directives';
 import 'babel-polyfill';
 
+import Tinymce from 'tinymce';
+
+import './assets/skins/ui/oxide/skin.css';
+
 Vue.config.productionTip = false;
+Vue.prototype.$tinymce = Tinymce;
 Vue.use(VueI18n);
 Vue.use(ElementUI, {
     size: 'small'
