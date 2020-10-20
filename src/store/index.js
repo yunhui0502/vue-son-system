@@ -1,7 +1,7 @@
 /* eslint-disable complexity */
 /* eslint-disable no-magic-numbers */
 // 负责：用户信息的  存储 获取 删除 三个函数
-const KEY = 'lanhu-pc-hui';
+const KEY = 'vue-manage-system';
 export default {
     setUser(user) {
         // 存储用户信息

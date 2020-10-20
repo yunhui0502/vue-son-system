@@ -7,7 +7,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/dashboard'
+            redirect: '/settings'
         },
         {
             path: '/',
@@ -15,7 +15,7 @@ export default new Router({
             meta: { title: '自述文件' },
             children: [
                 {
-                    path: '/',
+                    path: '/settings',
                     component: () => import(/* webpackChunkName: "dashboard" */ '../components/page/basic-settings'),
                     meta: { title: '基础设置' }
                 },
@@ -25,14 +25,14 @@ export default new Router({
                     meta: { title: '商品管理' }
                 },
                 {
-                    path: '/classify',
-                    component: () => import(/* webpackChunkName: "dashboard" */ '../components/page/classify'),
+                    path: '/commodity',
+                    component: () => import(/* webpackChunkName: "dashboard" */ '../components/page/commodity'),
                     meta: { title: '用户商品管理' }
                 },
                 {
                     path: '/integral',
                     component: () => import(/* webpackChunkName: "dashboard" */ '../components/page/integral'),
-                    meta: { title: '积分管理' }
+                    meta: { title: '用户订单管理' }
                 },
 
                 {
@@ -44,11 +44,6 @@ export default new Router({
                     path: '/403',
                     component: () => import(/* webpackChunkName: "403" */ '../components/page/403.vue'),
                     meta: { title: '403' }
-                },
-                {
-                    path: '/donate',
-                    component: () => import(/* webpackChunkName: "donate" */ '../components/page/Donate.vue'),
-                    meta: { title: '支持作者' }
                 }
             ]
         },

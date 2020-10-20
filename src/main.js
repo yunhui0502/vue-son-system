@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
 import './assets/css/icon.css';
 import './components/common/directives';
 import 'babel-polyfill';
+import store from '@/store';
 
 import Tinymce from 'tinymce';
 
@@ -28,7 +29,7 @@ const i18n = new VueI18n({
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
     document.title = `${to.meta.title} | vue-manage-system`;
-    const role = localStorage.getItem('ms_username');
+    const role = store.getUser().token;
     if (!role && to.path !== '/login') {
         next('/login');
     } else if (to.meta.permission) {

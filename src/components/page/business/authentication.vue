@@ -1,35 +1,32 @@
 <template>
     <div>
-        <div class="head">
-            <span @click="Tab(0)" class="head-item" :class="tabindex == 0 ? 'on' : ''">学生认证</span>
-            <span @click="Tab(1)" class="head-item" :class="tabindex == 1 ? 'on' : ''">认证审核</span>
-        </div>
 
-        <el-card class="box-card" v-if="tabindex == 0">
+        <el-card class="box-card">
             <div slot="header" class="clearfix">
                 <el-breadcrumb separator-class="el-icon-arrow-right">
                     <el-breadcrumb-item>商家管理</el-breadcrumb-item>
-                    <el-breadcrumb-item>学生认证</el-breadcrumb-item>
+                    <el-breadcrumb-item>认证审核</el-breadcrumb-item>
                 </el-breadcrumb>
-                <!-- <el-button @click="add" style="float: right; padding: 3px 0" class="text-black" type="text">+ 添加商品</el-button> -->
             </div>
-
             <div class="text item">
-                <el-table :data="options" stripe style="width: 100%">
+                <el-table :data="tableData" stripe style="width: 100%">
                     <el-table-column prop="userId" label="用户ID"> </el-table-column>
-                    <el-table-column prop="productName" label="头像">
+                    <el-table-column prop="name" label="头像">
                         <template slot-scope="scope">
                             <img class="fileurl" :src="scope.row.fileId" alt="" />
                         </template>
                     </el-table-column>
-                    <el-table-column prop="nickName" label="用户昵称"> </el-table-column>
-                    <el-table-column prop="college" label="认证学校"> </el-table-column>
-                    <el-table-column prop="productNum" label="发布商品数量"> </el-table-column>
-                    <el-table-column prop="buyProductNum" label="购买商品数量"> </el-table-column>
-                    <el-table-column prop="phone" label="联系方式"> </el-table-column>
-                    <el-table-column prop="createTime" label="注册时间"> </el-table-column>
-                    <el-table-column prop="income" label="收入流水"> </el-table-column>
-                    <el-table-column prop="expend" label="支出流水"> </el-table-column>
+                    <el-table-column prop="name" label="用户昵称"> </el-table-column>
+                    <el-table-column prop="collegesName" label="认证学校"> </el-table-column>
+                    <el-table-column prop="studentNumber" label="学生证"> </el-table-column>
+                    <!-- <el-table-column prop="name" label="联系方式"> </el-table-column> -->
+                    <el-table-column prop="createDate" label="提交时间"> </el-table-column>
+                    <el-table-column prop="address" label="操作">
+                        <template slot-scope="scope">
+                            <el-button @click="handleClick(scope.row)" type="text" size="small">同意</el-button>
+                            <el-button type="text" @click="deleteProduct(scope.row)" class="text-red" size="small">拒绝</el-button>
+                        </template>
+                    </el-table-column>
                 </el-table>
                 <!-- <div class="block">
                     <el-pagination
@@ -45,10 +42,6 @@
                 </div> -->
             </div>
         </el-card>
-
-        <div v-if="tabindex == 1">
-            <authentication></authentication>
-        </div>
     </div>
 </template>
 
@@ -58,36 +51,12 @@ import store from '@/store';
 import api from '@/service/product.js';
 import userApi from '@/service/user-api.js';
 
-import authentication from './authentication.vue';
-
 export default {
     name: '',
-    components: {
-        authentication,
-    },
     data() {
         return {
             options: [],
             tableData: [],
-
-            formData: {
-                categoryId: '0', //类目
-                file: [],
-                goodsResp: '', //库存
-                isPutaway: '0', //是否上架
-                // linePrice: '200', //划线价格
-                productDesc: '', //富文本
-                productName: '', //商品名字
-                sellPrice: '100', //售卖价格
-                showType: 'coupon', //商品类型
-                storeType: 'store',
-                storeId: '' // 店铺id
-            },
-            tabindex: 0,
-            dialogImageUrl: '',
-            dialogVisible: false,
-
-            dialogFormVisible: false,
             currentPage3: 5,
             formLabelWidth: '120px',
             title: '添加商品'
@@ -95,7 +64,6 @@ export default {
     },
     created() {
         this.authenticationList();
-        this.selectProduct();
     },
     methods: {
 
@@ -139,16 +107,6 @@ export default {
                 this.tableData = res.data.data;
                 console.log(res);
             });
-        },
-        // 学生认证
-        selectProduct() {
-            userApi.UserList(0, (res) => {
-                this.options = res.data.data;
-                console.log(res);
-            });
-        },
-        Tab(e) {
-            this.tabindex = e;
         },
         // ----------------------------------------------------------------------
 

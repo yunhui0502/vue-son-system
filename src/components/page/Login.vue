@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import store from '@/store';
 import userApi from '@/service/user-api.js';
 
 export default {
@@ -45,7 +46,8 @@ export default {
                     userApi.Login(this.param,(res) => {
                         console.log(res.data.data)
                         this.$message.success('登录成功');
-                        localStorage.setItem('ms_username', res.data.data);
+                        store.setUser(res.data.data);
+                        // localStorage.setItem('ms_username', res.data.data);
                         this.$router.push('/');
                     });
                 } else {

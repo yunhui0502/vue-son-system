@@ -52,13 +52,13 @@ export default {
                     title: '数据统计'
                 },
                 {
-                    icon: 'el-icon-lx-shop',
+                    icon: 'el-icon-lx-friendadd',
                     index: 'business',
                     title: '用户管理'
                 },
                 {
-                    icon: 'el-icon-lx-calendar',
-                    index: 'classify',
+                    icon: 'el-icon-lx-present',
+                    index: 'commodity',
                     title: '用户商品管理'
                 },
                 {
