@@ -15,8 +15,22 @@ function authenticationDispose(params) {
     fd.append('sonId', params.sonId);
     return Axios.post(user + '/MiniLoginController/authenticationDispose', fd);
 }
-
+//每月收入图标
+function backendData(sonId) {
+    return Axios.get(order + '/Statistics/backendData?sonId='+ sonId);
+}
+//订单统计
+function orderStatistics(sonId) {
+    return Axios.get(order + '/Statistics/orderStatistics?sonId='+ sonId);
+}
+//用户统计
+function userStatistics(sonId) {
+    return Axios.get(order + '/Statistics/userStatistics?sonId='+sonId);
+}
 export default {
     selectOrder: selectOrder,
     authenticationDispose: authenticationDispose,
+    backendData:backendData,
+    orderStatistics:orderStatistics,
+    userStatistics:userStatistics
 };

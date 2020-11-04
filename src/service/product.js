@@ -44,6 +44,9 @@ async function updateIntegralProduct(params, handleResult) {
 async function selectIntegralRecord(params, handleResult) {
     product.selectIntegralRecord(params).then(res => handleResult(res));
 }
+async function addWithdrawal(params, handleResult) {
+    product.addWithdrawal(params).then(res => handleResult(res));
+}
 export default {
     addCategory: addCategory,
     category: category,
@@ -58,5 +61,6 @@ export default {
     selectIntegralProduct: selectIntegralProduct,
     deleteIntegralProduct: deleteIntegralProduct,
     updateIntegralProduct: updateIntegralProduct,
-    selectIntegralRecord: selectIntegralRecord
+    selectIntegralRecord: selectIntegralRecord,
+    addWithdrawal:addWithdrawal
 };

@@ -16,10 +16,14 @@ async function UserList(sonId,handleResult) {
 async function Login(params,handleResult) {
     product.Login(params).then(res => handleResult(res));
 }
+async function sonDetails(storeId,userId,handleResult) {
+    product.sonDetails(storeId,userId).then(res => handleResult(res));
+}
 export default {
     enterStoreList: enterStoreList,
     authenticationList: authenticationList,
     authenticationDispose: authenticationDispose,
     UserList:UserList,
-    Login:Login
+    Login:Login,
+    sonDetails:sonDetails
 };

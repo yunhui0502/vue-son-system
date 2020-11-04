@@ -30,8 +30,8 @@ export default {
     data: function () {
         return {
             param: {
-                username: 'admin',
-                password: 'admin'
+                username: 'shihao3',
+                password: '123456'
             },
             rules: {
                 username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],

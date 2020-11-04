@@ -4,6 +4,7 @@
 import Axios from 'axios';
 
 let product = 'https://www.tjsichuang.cn:1443/second/product';
+let payment = 'https://www.tjsichuang.cn:1443/second/payment'
 // let product = 'http://192.168.1.128:7002/product';'
 // =============================================商品模块
 
@@ -116,6 +117,20 @@ function deleteIntegralProduct(params) {
 function selectIntegralRecord(param) {
     return Axios.get(product + '/Integral/selectIntegralRecord', { params: param });
 }
+// 提现
+function addWithdrawal(params) {
+    let fd = new FormData();
+    fd.append('methodId', params.methodId);
+    fd.append('phone', params.phone);
+    fd.append('sonId', params.sonId);
+    fd.append('source', params.source);
+    fd.append('storeId', params.storeId);
+    fd.append('userId', params.userId);
+    fd.append('withdrawalAccount', params.withdrawalAccount);
+    fd.append('withdrawalMoney', params.withdrawalMoney);
+    fd.append('withdrawalName', params.withdrawalName);
+    return Axios.post(payment + '/Withdrawal/addWithdrawal', fd);
+}
 export default {
     addCategory: addCategory,
     category: category,
@@ -130,5 +145,6 @@ export default {
     selectIntegralProduct: selectIntegralProduct,
     deleteIntegralProduct: deleteIntegralProduct,
     updateIntegralProduct: updateIntegralProduct,
-    selectIntegralRecord: selectIntegralRecord
+    selectIntegralRecord: selectIntegralRecord,
+    addWithdrawal:addWithdrawal
 };

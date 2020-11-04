@@ -27,10 +27,14 @@ function Login(params) {
     fd.append('username', params.username);
     return Axios.post(user + '/SonLogin/Login', fd);
 }
+function sonDetails(storeId,userId) {
+    return Axios.get(user + '/SonLogin/sonDetails?storeId='+storeId +'&userId='+userId );
+}
 export default {
     enterStoreList: enterStoreList,
     authenticationList: authenticationList,
     authenticationDispose: authenticationDispose,
     UserList: UserList,
-    Login: Login
+    Login: Login,
+    sonDetails:sonDetails,
 };
