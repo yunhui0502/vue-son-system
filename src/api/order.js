@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-let order = 'https://www.tjsichuang.cn:1443/second/order';
+let order = 'http://swcloud.tjsichuang.cn:1444/second/order';
 // =============================================商品模块
 //查询订单
 function selectOrder(param) {

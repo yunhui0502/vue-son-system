@@ -142,7 +142,7 @@ export default {
         },
         // 学生认证
         selectProduct() {
-            userApi.UserList(0, (res) => {
+            userApi.UserList({IsAuthentication:0,sonId: store.getUser().sonId}, (res) => {
                 this.options = res.data.data;
                 console.log(res);
             });

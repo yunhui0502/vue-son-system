@@ -10,8 +10,8 @@ async function authenticationList(sonId,handleResult) {
 async function authenticationDispose(params,handleResult) {
     product.authenticationDispose(params).then(res => handleResult(res));
 }
-async function UserList(sonId,handleResult) {
-    product.UserList(sonId).then(res => handleResult(res));
+async function UserList(params,handleResult) {
+    product.UserList(params).then(res => handleResult(res));
 }
 async function Login(params,handleResult) {
     product.Login(params).then(res => handleResult(res));

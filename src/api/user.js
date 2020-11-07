@@ -1,7 +1,8 @@
 import Axios from 'axios';
 
-let user = 'https://www.tjsichuang.cn:1443/second/user';
-// =============================================商品模块
+let user = 'http://swcloud.tjsichuang.cn:1444/second/user';
+// let user = 'https://swcloud.tjsichuang.cn:1444/second/user';
+// =============================================商品模块 
 //入驻商家列表
 function enterStoreList() {
     return Axios.get(user + '/StoreLogin/enterStoreList');
@@ -18,8 +19,9 @@ function authenticationDispose(params) {
     fd.append('sonId', params.sonId);
     return Axios.post(user + '/MiniLoginController/authenticationDispose', fd);
 }
-function UserList(sonId) {
-    return Axios.get(user + '/MiniLoginController/UserList?IsAuthentication='+sonId );
+function UserList(params) {
+
+    return Axios.get(user + '/MiniLoginController/UserList?IsAuthentication='+ params.IsAuthentication + '&sonId='+ params.sonId );
 }
 function Login(params) {
     let fd = new FormData();

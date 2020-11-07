@@ -46,6 +46,8 @@
 </template>
 <script>
 import bus from '../common/bus';
+import store from '@/store';
+
 export default {
     data() {
         return {
@@ -57,7 +59,7 @@ export default {
     },
     computed: {
         username() {
-            let username = localStorage.getItem('ms_username');
+            let username = store.getUser().name;
             return username ? username : this.name;
         }
     },
