@@ -135,7 +135,7 @@ export default {
 
         // 学生认证列表
         authenticationList() {
-            userApi.authenticationList(2, (res) => {
+            userApi.authenticationList(store.getUser().sonId, (res) => {
                 this.tableData = res.data.data;
                 console.log(res);
             });

@@ -3,8 +3,8 @@
 // import Axios from './index';
 import Axios from 'axios';
 
-let product = 'http://swcloud.tjsichuang.cn:1444/second/product';
-let payment = 'http://swcloud.tjsichuang.cn:1444/second/payment'
+let product = 'https://swcloud.tjsichuang.cn:1444/second/product';
+let payment = 'https://swcloud.tjsichuang.cn:1444/second/payment'
 // let product = 'http://192.168.1.128:7002/product';'
 // =============================================商品模块
 

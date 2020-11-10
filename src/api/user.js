@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-let user = 'http://swcloud.tjsichuang.cn:1444/second/user';
+let user = 'https://swcloud.tjsichuang.cn:1444/second/user';
 // let user = 'https://swcloud.tjsichuang.cn:1444/second/user';
 // =============================================商品模块 
 //入驻商家列表
