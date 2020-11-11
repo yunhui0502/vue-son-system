@@ -19,11 +19,15 @@ async function Login(params,handleResult) {
 async function sonDetails(storeId,userId,handleResult) {
     product.sonDetails(storeId,userId).then(res => handleResult(res));
 }
+async function announcement(storeId,userId,handleResult) {
+    product.announcement(storeId,userId).then(res => handleResult(res));
+}
 export default {
     enterStoreList: enterStoreList,
     authenticationList: authenticationList,
     authenticationDispose: authenticationDispose,
     UserList:UserList,
     Login:Login,
-    sonDetails:sonDetails
+    sonDetails:sonDetails,
+    announcement:announcement
 };

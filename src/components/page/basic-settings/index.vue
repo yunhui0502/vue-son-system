@@ -4,7 +4,7 @@
             <div class="userClass">
                 <h5>用户总数</h5>
                 <div class="amount-box">
-                    <div class="amount">{{ userData.userNumber }}</div>
+                    <div class="amount">{{ userData.userAuthentication }}</div>
                     <img src="../../../assets/img/yh.png" alt="" />
                 </div>
             </div>
@@ -40,18 +40,18 @@
                             <span>分类</span>
                             <span>数量</span>
                         </div>
-                        <div class="body">
+                        <!-- <div class="body">
                             <span>普通用户</span>
                             <span class="amount">{{ userData.userGeneral }}</span>
-                        </div>
+                        </div> -->
                         <div class="body">
                             <span>认证学生</span>
                             <span class="amount">{{ userData.userAuthentication }}</span>
                         </div>
-                        <div class="body">
+                        <!-- <div class="body">
                             <span>商家用户</span>
                             <span class="amount">{{ userData.userStore }}</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -194,18 +194,18 @@ export default {
                 this.statistics = [];
                 let data = res.data.data[0];
                 console.log(data);
-                this.statistics.push(data.january);
-                this.statistics.push(data.february);
-                this.statistics.push(data.march);
-                this.statistics.push(data.april);
-                this.statistics.push(data.may);
-                this.statistics.push(data.june);
-                this.statistics.push(data.july);
-                this.statistics.push(data.august);
-                this.statistics.push(data.september);
-                this.statistics.push(data.october);
-                this.statistics.push(data.november);
-                this.statistics.push(data.december);
+                this.statistics.push(data.january/100);
+                this.statistics.push(data.february/100);
+                this.statistics.push(data.march/100);
+                this.statistics.push(data.april/100);
+                this.statistics.push(data.may/100);
+                this.statistics.push(data.june/100);
+                this.statistics.push(data.july/100);
+                this.statistics.push(data.august/100);
+                this.statistics.push(data.september/100);
+                this.statistics.push(data.october/100);
+                this.statistics.push(data.november/100);
+                this.statistics.push(data.december/100);
                 this.category();
             });
         },
