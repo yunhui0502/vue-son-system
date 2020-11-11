@@ -11,14 +11,14 @@
             <div class="text item">
                 <el-table :data="tableData" stripe style="width: 100%">
                     <el-table-column prop="userId" label="用户ID"> </el-table-column>
-                    <el-table-column prop="name" label="头像">
-                        <template slot-scope="scope">
-                            <img class="fileurl" :src="scope.row.fileId" alt="" />
-                        </template>
-                    </el-table-column>
+                    <el-table-column prop="studentNumber" label="学号"></el-table-column>
                     <el-table-column prop="name" label="用户昵称"> </el-table-column>
                     <el-table-column prop="collegesName" label="认证学校"> </el-table-column>
-                    <el-table-column prop="studentNumber" label="学生证"> </el-table-column>
+                    <el-table-column prop="studentNumber" label="学生证">
+                        <template slot-scope="scope">
+                            <img class="fileurl" :src="scope.row.secondPictures[0]" alt="" />
+                        </template>
+                    </el-table-column>
                     <!-- <el-table-column prop="name" label="联系方式"> </el-table-column> -->
                     <el-table-column prop="createDate" label="提交时间"> </el-table-column>
                     <el-table-column prop="address" label="操作">

@@ -25,7 +25,7 @@
             <div class="userClass">
                 <h5>收入总额</h5>
                 <div class="amount-box">
-                    <div class="amount">{{ sonDetailsData.sumMoney }}</div>
+                    <div class="amount">{{ numFilter(sonDetailsData.sumMoney/100) }}</div>
                     <img src="../../../assets/img/yh.png" alt="" />
                 </div>
             </div>
@@ -84,7 +84,7 @@
                 <div class="item">
                     <h5>子站点分成收益</h5>
                     <div class="Withdraw">
-                        <div>{{ sonDetailsData.money }}</div>
+                        <div>{{ numFilter(sonDetailsData.money/100) }}</div>
                         <div @click="dialogFormVisible = true" class="butt">提现</div>
                     </div>
                 </div>
@@ -162,6 +162,11 @@ export default {
         this.sonDetails();
     },
     methods: {
+        numFilter(value) {
+			// 截取当前数据到小数点后两位
+			let realVal = parseFloat(value).toFixed(2)
+			return realVal
+		},
         NumSteps() {
             if (this.withdrawalMoney < 1) {
                 this.$message({
