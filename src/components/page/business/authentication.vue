@@ -82,6 +82,7 @@ export default {
                     message: '已同意',
                     type: 'success'
                 });
+                this.authenticationList()
             });
         },
                 // 拒绝
@@ -98,6 +99,7 @@ export default {
                     message: '已拒绝',
                     type: 'success'
                 });
+                this.authenticationList()
             });
         },
 
