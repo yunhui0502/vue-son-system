@@ -16,11 +16,11 @@
                     <el-table-column prop="collegesName" label="认证学校"> </el-table-column>
                     <el-table-column prop="studentNumber" label="学生证">
                         <template slot-scope="scope">
-                            <img class="fileurl" :src="scope.row.secondPictures[0]" alt="" />
+                                <img  class="fileurl" :src="scope.row.secondPictures[0]" alt="" />
                         </template>
                     </el-table-column>
                     <!-- <el-table-column prop="name" label="联系方式"> </el-table-column> -->
-                    <el-table-column prop="createDate" label="提交时间"> </el-table-column>
+                    <el-table-column prop="createDate" label="提交时间"></el-table-column>
                     <el-table-column prop="address" label="操作">
                         <template slot-scope="scope">
                             <el-button @click="handleClick(scope.row)" type="text" size="small">同意</el-button>
@@ -103,10 +103,18 @@ export default {
             });
         },
 
-        // 学生认证列表
+        // 学生认证列表 undefined
         authenticationList() {
             userApi.authenticationList(store.getUser().sonId, (res) => {
                 this.tableData = res.data.data;
+                this.tableData.forEach(item=>{
+                    
+                    // console.log('列表',item.secondPictures)
+                    if (item.secondPictures == undefined) {
+                        item.secondPictures = ['https://swcloud.tjsichuang.cn:1444/second/user/File/getPicture?id=-1']
+                        // console.log('列表2',item.secondPictures)
+                    }
+                })
                 console.log(res);
             });
         },
