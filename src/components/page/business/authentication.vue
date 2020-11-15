@@ -106,8 +106,8 @@ export default {
         // 学生认证列表 undefined
         authenticationList() {
             userApi.authenticationList(store.getUser().sonId, (res) => {
-                this.tableData = res.data.data;
-                this.tableData.forEach(item=>{
+                let tableData = res.data.data;
+                tableData.forEach(item=>{
                     
                     // console.log('列表',item.secondPictures)
                     if (item.secondPictures == undefined) {
@@ -115,6 +115,8 @@ export default {
                         // console.log('列表2',item.secondPictures)
                     }
                 })
+
+                this.tableData = tableData
                 console.log(res);
             });
         },

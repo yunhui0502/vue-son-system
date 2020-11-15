@@ -140,10 +140,15 @@ export default {
                 console.log(res);
             });
         },
-        // 学生认证
+        // 学生认证 
         selectProduct() {
             userApi.UserList({IsAuthentication:0,sonId: store.getUser().sonId}, (res) => {
-                this.options = res.data.data;
+               let options = res.data.data;
+                options.forEach(item=>{
+                    item.income = parseFloat(item.income/100).toFixed(2)
+                    item.expend = parseFloat(item.expend/100).toFixed(2)
+                })
+                this.options = options
                 console.log(res);
             });
         },
