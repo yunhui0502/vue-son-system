@@ -17,6 +17,7 @@
     "less-loader": "^7.0.1",
     "mavon-editor": "^2.6.17",
     "tinymce": "^5.4.2",
+    "v-viewer": "^1.5.1",
     "vue": "^2.6.10",
     "vue-cropperjs": "^3.0.0",
     "vue-i18n": "^8.10.0",

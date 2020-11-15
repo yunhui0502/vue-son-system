@@ -16,7 +16,9 @@
                     <el-table-column prop="collegesName" label="认证学校"> </el-table-column>
                     <el-table-column prop="studentNumber" label="学生证">
                         <template slot-scope="scope">
-                                <img  class="fileurl" :src="scope.row.secondPictures[0]" alt="" />
+                            <div v-viewer>
+                                <img  class="fileurl" style="cursor:pointer" :src="scope.row.secondPictures[0]" alt="" />
+                            </div>
                         </template>
                     </el-table-column>
                     <!-- <el-table-column prop="name" label="联系方式"> </el-table-column> -->

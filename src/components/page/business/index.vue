@@ -19,7 +19,7 @@
                     <el-table-column prop="userId" label="用户ID"> </el-table-column>
                     <el-table-column prop="productName" label="头像">
                         <template slot-scope="scope">
-                            <img class="fileurl" :src="scope.row.userFIle" alt="" />
+                            <img class="fileurl"  :src="scope.row.userFIle" alt="" />
                         </template>
                     </el-table-column>
                     <el-table-column prop="nickName" label="用户昵称"> </el-table-column>
